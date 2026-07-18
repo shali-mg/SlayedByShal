@@ -147,7 +147,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 30),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -167,6 +166,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
+              const SizedBox(height: 60),
+              Image.asset("assets/est2026.png", height: 25),
             ],
           ),
         ),
