@@ -10,6 +10,26 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _obscurePassword = true;
+  final FocusNode _emailFocus = FocusNode();
+  final FocusNode _passwordFocus = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _emailFocus.addListener(() {
+      setState(() {});
+    });
+    _passwordFocus.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _emailFocus.dispose();
+    _passwordFocus.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +55,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: _emailFocus.hasFocus
+                        ? fourthColor
+                        : Colors.transparent,
+                    width: 4,
+                  ),
                   boxShadow: [
                     BoxShadow(
                       color: shadowColor,
@@ -44,8 +70,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 child: TextField(
+                  focusNode: _emailFocus,
                   decoration: InputDecoration(
                     border: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
                     hintText: "Email or Phone Number",
                     prefixIcon: Icon(Icons.person),
                   ),
@@ -58,6 +87,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: _passwordFocus.hasFocus
+                        ? fourthColor
+                        : Colors.transparent,
+                    width: 4,
+                  ),
                   boxShadow: [
                     BoxShadow(
                       color: shadowColor,
@@ -67,9 +102,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 child: TextField(
+                  focusNode: _passwordFocus,
                   obscureText: _obscurePassword,
                   decoration: InputDecoration(
                     border: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
                     hintText: "Password",
                     prefixIcon: Icon(Icons.lock),
                     suffixIcon: IconButton(
