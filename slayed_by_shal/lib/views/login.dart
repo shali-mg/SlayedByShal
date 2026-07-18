@@ -125,6 +125,48 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: 40),
+              Text("Forgot Password?", style: TextStyle(color: secondColor)),
+              SizedBox(height: 60),
+              Container(
+                width: 300,
+                height: 60,
+                margin: EdgeInsets.symmetric(horizontal: 50),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: fourthColor,
+                ),
+                child: Center(
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an account? ",
+                    style: TextStyle(color: secondColor),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "Sign Up",
+                      style: TextStyle(
+                        color: fourthColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
