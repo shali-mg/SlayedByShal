@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:slayed_by_shal/configs/routes.dart';
 import 'package:slayed_by_shal/views/login.dart';
 import 'package:slayed_by_shal/views/registration.dart';
 
@@ -15,7 +16,9 @@ class SlayedByShal extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RegistrationScreen(),
+      home: LoginScreen(),
+      initialRoute: "/",
+      getPages: routes,
     );
   }
 }

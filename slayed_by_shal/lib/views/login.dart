@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:slayed_by_shal/configs/colors.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -128,20 +130,25 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 40),
               Text("Forgot Password?", style: TextStyle(color: secondColor)),
               SizedBox(height: 60),
-              Container(
-                width: 300,
-                height: 60,
-                margin: EdgeInsets.symmetric(horizontal: 50),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: fourthColor,
-                ),
-                child: Center(
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed("/home");
+                },
+                child: Container(
+                  width: 300,
+                  height: 60,
+                  margin: EdgeInsets.symmetric(horizontal: 50),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: fourthColor,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -155,7 +162,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(color: secondColor),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed("/register");
+                    },
                     child: Text(
                       "Sign Up",
                       style: TextStyle(

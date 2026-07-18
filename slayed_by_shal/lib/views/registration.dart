@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:slayed_by_shal/configs/colors.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -316,20 +318,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 SizedBox(height: 60),
-                Container(
-                  width: 300,
-                  height: 60,
-                  margin: EdgeInsets.symmetric(horizontal: 50),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: fourthColor,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Create Account",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed("/login");
+                  },
+                  child: Container(
+                    width: 300,
+                    height: 60,
+                    margin: EdgeInsets.symmetric(horizontal: 50),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: fourthColor,
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Create Account",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -343,7 +350,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       style: TextStyle(color: secondColor),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed("/login");
+                      },
                       child: Text(
                         "Login",
                         style: TextStyle(
