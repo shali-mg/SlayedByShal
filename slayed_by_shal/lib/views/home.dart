@@ -30,28 +30,32 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           /// Home
           SalomonBottomBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(position == 0 ? Icons.home : Icons.home_outlined),
             title: Text("Home"),
             selectedColor: fourthColor,
           ),
 
           /// Likes
           SalomonBottomBarItem(
-            icon: Icon(Icons.favorite_border),
+            icon: Icon(position == 1 ? Icons.favorite : Icons.favorite_border),
             title: Text("Saved"),
             selectedColor: fourthColor,
           ),
 
           /// Search
           SalomonBottomBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: Icon(
+              position == 2
+                  ? Icons.shopping_cart
+                  : Icons.shopping_cart_outlined,
+            ),
             title: Text("Cart"),
             selectedColor: fourthColor,
           ),
 
           /// Profile
           SalomonBottomBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(position == 3 ? Icons.person : Icons.person_outline),
             title: Text("Profile"),
             selectedColor: fourthColor,
           ),
