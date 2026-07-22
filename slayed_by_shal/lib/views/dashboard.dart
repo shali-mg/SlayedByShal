@@ -80,7 +80,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ],
           ),
         ),
-
         backgroundColor: primaryColor,
         elevation: 0,
         bottom: PreferredSize(
@@ -130,7 +129,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: Row(
                 children: List.generate(categories.length, (index) {
                   final isSelected = selectedIndex == index;
-
                   return Padding(
                     padding: const EdgeInsets.only(right: 15),
                     child: SizedBox(
@@ -182,10 +180,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 }),
               ),
             ),
-
             const SizedBox(height: 20),
-
-            // Products Grid
             Expanded(
               child: GridView.builder(
                 itemCount: filteredProducts.length,
@@ -197,7 +192,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 itemBuilder: (context, index) {
                   final product = filteredProducts[index];
-
                   return ProductCard(
                     image: product.image,
                     title: product.title,
@@ -209,6 +203,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           wishlist.remove(product);
                         } else {
                           wishlist.add(product);
+                        }
+                      });
+                    },
+                    onAddToCart: () {
+                      setState(() {
+                        if (!cart.contains(product)) {
+                          cart.add(product);
                         }
                       });
                     },

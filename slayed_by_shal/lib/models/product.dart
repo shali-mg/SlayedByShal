@@ -128,3 +128,4 @@ final products = [
   ),
 ];
 final List<Product> wishlist = [];
+final List<Product> cart = [];

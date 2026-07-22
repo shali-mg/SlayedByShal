@@ -52,7 +52,6 @@ class _SavedPageState extends State<WishlistScreen> {
             ),
           ),
         ],
-
         backgroundColor: primaryColor,
         elevation: 0,
       ),
@@ -68,7 +67,6 @@ class _SavedPageState extends State<WishlistScreen> {
           ),
           itemBuilder: (context, index) {
             final product = wishlist[index];
-
             return ProductCard(
               image: product.image,
               title: product.title,
@@ -77,6 +75,13 @@ class _SavedPageState extends State<WishlistScreen> {
               onFavoriteTap: () {
                 setState(() {
                   wishlist.remove(product);
+                });
+              },
+              onAddToCart: () {
+                setState(() {
+                  if (!cart.contains(product)) {
+                    cart.add(product);
+                  }
                 });
               },
               isSaved: true,

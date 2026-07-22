@@ -10,6 +10,7 @@ class ProductCard extends StatelessWidget {
     required this.press,
     required this.onFavoriteTap,
     required this.isSaved,
+    required this.onAddToCart,
   });
 
   final String image;
@@ -17,6 +18,7 @@ class ProductCard extends StatelessWidget {
   final String price;
   final VoidCallback press;
   final VoidCallback onFavoriteTap;
+  final VoidCallback onAddToCart;
   final bool isSaved;
 
   @override
@@ -37,7 +39,6 @@ class ProductCard extends StatelessWidget {
             ),
           ],
         ),
-
         child: Column(
           children: [
             Stack(
@@ -49,7 +50,6 @@ class ProductCard extends StatelessWidget {
                   ),
                   child: Image.asset(image, height: 132, fit: BoxFit.contain),
                 ),
-
                 Positioned(
                   top: 6,
                   right: 6,
@@ -71,18 +71,29 @@ class ProductCard extends StatelessWidget {
                 ),
               ],
             ),
-
+            Positioned(
+              bottom: 6,
+              right: 6,
+              child: GestureDetector(
+                onTap: onAddToCart,
+                child: Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: const BoxDecoration(
+                    color: primaryColor,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.add, color: Colors.white, size: 18),
+                ),
+              ),
+            ),
             const SizedBox(height: 10),
-
             Text(
               title,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontFamily: "Avallon", fontSize: 15),
             ),
-
             const SizedBox(height: 5),
-
             Text(
               price,
               style: TextStyle(
