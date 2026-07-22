@@ -3,12 +3,14 @@ class Product {
   final String title;
   final String price;
   final String category;
+  bool isSaved;
 
   Product({
     required this.image,
     required this.title,
     required this.price,
     required this.category,
+    this.isSaved = false,
   });
 }
 
@@ -125,3 +127,4 @@ final products = [
     category: "Skin Care",
   ),
 ];
+final List<Product> wishlist = [];

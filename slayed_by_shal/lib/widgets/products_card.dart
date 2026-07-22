@@ -8,12 +8,16 @@ class ProductCard extends StatelessWidget {
     required this.title,
     required this.price,
     required this.press,
+    required this.onFavoriteTap,
+    required this.isSaved,
   });
 
   final String image;
   final String title;
   final String price;
   final VoidCallback press;
+  final VoidCallback onFavoriteTap;
+  final bool isSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -33,21 +37,52 @@ class ProductCard extends StatelessWidget {
             ),
           ],
         ),
+
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: const Color(0xFFEFEFF2),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Image.asset(image, height: 132, fit: BoxFit.contain),
+            Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFEFEFF2),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Image.asset(image, height: 132, fit: BoxFit.contain),
+                ),
+
+                Positioned(
+                  top: 6,
+                  right: 6,
+                  child: GestureDetector(
+                    onTap: onFavoriteTap,
+                    child: Container(
+                      padding: const EdgeInsets.all(5),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        isSaved ? Icons.favorite : Icons.favorite_border,
+                        size: 16,
+                        color: primaryColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
+
             const SizedBox(height: 10),
+
             Text(
               title,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontFamily: "Avallon", fontSize: 15),
             ),
+
             const SizedBox(height: 5),
+
             Text(
               price,
               style: TextStyle(

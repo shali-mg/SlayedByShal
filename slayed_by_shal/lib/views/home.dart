@@ -4,9 +4,14 @@ import 'package:slayed_by_shal/configs/colors.dart';
 import 'package:slayed_by_shal/views/cart.dart';
 import 'package:slayed_by_shal/views/dashboard.dart';
 import 'package:slayed_by_shal/views/profile.dart';
-import 'package:slayed_by_shal/views/saved.dart';
+import 'package:slayed_by_shal/views/wishlist.dart';
 
-var screens = [DashboardScreen(), SavedScreen(), CartScreen(), ProfileScreen()];
+var screens = [
+  DashboardScreen(),
+  WishlistScreen(),
+  CartScreen(),
+  ProfileScreen(),
+];
 int position = 0;
 
 class HomeScreen extends StatefulWidget {
@@ -38,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           /// Likes
           SalomonBottomBarItem(
             icon: Icon(position == 1 ? Icons.favorite : Icons.favorite_border),
-            title: Text("Saved"),
+            title: Text("Wishlist"),
             selectedColor: fourthColor,
           ),
 

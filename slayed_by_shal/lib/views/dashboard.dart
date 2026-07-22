@@ -203,6 +203,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     title: product.title,
                     price: product.price,
                     press: () {},
+                    onFavoriteTap: () {
+                      setState(() {
+                        if (wishlist.contains(product)) {
+                          wishlist.remove(product);
+                        } else {
+                          wishlist.add(product);
+                        }
+                      });
+                    },
+                    isSaved: wishlist.contains(product),
                   );
                 },
               ),
